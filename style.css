@@ -1,0 +1,114 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    font-family: monospace;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-select: none;
+    -webkit-user-select: none;
+}
+
+/* HEADER */
+header {
+    background-image: linear-gradient(to right, #5e97f6, rgb(04, 61, 156));
+    height: 64px;
+    color: white;
+    display: flex;
+}
+header > h1, header > h2 {
+    width: 100%;
+    margin: auto 4rem;
+}
+header > h2 {
+    text-align: right;
+}
+
+/* MAIN */
+main {
+    height: calc(100% - 120px);
+    display: flex;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/background.jpg);
+    background-size: cover;
+}
+
+/* FOOTER */
+footer {
+    height: 56px;
+    color: rgba(0, 0, 0, .54);
+    font-weight: bold;
+    display: flex;
+    background-image: linear-gradient(to right, #fbfbfb, #eee);
+}
+footer > h4, footer > div {
+    width: 100%;
+    margin: auto 4rem;
+    display: flex;
+}
+footer > div {
+    width: 25%;
+}
+footer > div > ul {
+    text-indent: 1em;
+    list-style-type: none;
+}
+
+/* CAROUSEL */
+.carousel-wrapper {
+    width: 90%;
+    margin: 5% auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: white;
+}
+.slides-wrapper {
+    width: 1000%;
+    height: calc(100% - 56px);
+    display: flex;
+    background-image: linear-gradient(to right, #eee, #777);
+    transition: .8s cubic-bezier(.77, 0, .175, 1);
+}
+nav {
+    display: flex;
+    color: rgb(04, 61, 156);
+}
+.pagination-wrapper {
+    height: 56px;
+    width: 50%;
+    max-width: 560px;
+    margin: auto;
+    display: flex;
+}
+.pagination-bullets-wrapper {
+    width: 100%;
+    display: flex;
+}
+.pagination-bullets-wrapper > div {
+    width: 10% !important;
+    padding: 0 !important;
+}
+.previous-button-wrapper, .next-button-wrapper, .pagination-bullets-wrapper > div {
+    height: 56px;
+    transition: .2s ease;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.33em;
+    font-weight: bold;
+    line-height: 3.33em;
+    padding: 0 1em;
+}
+.previous-button-wrapper:hover, .next-button-wrapper:hover, .pagination-bullets-wrapper > div:hover {
+    font-size: 1.5em;
+    line-height: 3em;
+}
+.slides-wrapper > div[class^="slide"] {
+    width: 10%;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .16), 0 2px 4px rgba(0, 0, 0, .23);
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>English Project</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Internet Privacy</h1>
+            <h2>An English Project</h2>
+        </header>
+        <main>
+            <div class="carousel-wrapper">
+                <div class="slides-wrapper">
+                    <div class="slide1"></div>
+                    <div class="slide2"></div>
+                    <div class="slide3"></div>
+                    <div class="slide4"></div>
+                    <div class="slide5"></div>
+                    <div class="slide6"></div>
+                    <div class="slide7"></div>
+                    <div class="slide8"></div>
+                    <div class="slide9"></div>
+                    <div class="slide10"></div>
+                </div>
+                <nav>
+                    <div class="pagination-wrapper">
+                        <div class="previous-button-wrapper">&lt;</div>
+                        <div class="pagination-bullets-wrapper">
+                            <div id="1">&#x25CF;</div>
+                            <div id="2">&#x25CF;</div>
+                            <div id="3">&#x25CF;</div>
+                            <div id="4">&#x25CF;</div>
+                            <div id="5">&#x25CF;</div>
+                            <div id="6">&#x25CF;</div>
+                            <div id="7">&#x25CF;</div>
+                            <div id="8">&#x25CF;</div>
+                            <div id="9">&#x25CF;</div>
+                            <div id="10">&#x25CF;</div>
+                        </div>
+                        <div class="next-button-wrapper">&gt;</div>
+                    </div>
+                </nav>
+            </div>
+        </main>
+        <footer>
+            <h4>&copy; Copyright - 2018</h4>
+            <div>
+                <h4>Authors:</h4>
+                <ul>
+                    <li>Eris Allkanjari</li>
+                    <li>Gerian Lleshaj</li>
+                    <li>Elton Memishaj</li>
+                </ul>
+            </div>
+        </footer>
+        <script>
+            const slidesWrapper = document.querySelector('.slides-wrapper');
+            const paginationPages = document.querySelector('.pagination-bullets-wrapper').children;
+            var currentPage = 1;
+            page(1);
+            window.addEventListener('load', function() {
+                slidesWrapper.style['margin-left'] = '0';
+                for(var i = 0; i < paginationPages.length; i++) {
+                    paginationPages[i].setAttribute('onclick', 'page(parseFloat(this.id));');
+                    paginationPages[i].setAttribute('onmouseover', 'page(parseFloat(this.id));');
+                }
+                document.querySelector('.previous-button-wrapper').setAttribute('onclick', 'previousPage();');
+                document.querySelector('.next-button-wrapper').setAttribute('onclick', 'nextPage();');
+            });
+            function page(pageNr) {
+                if(pageNr < 1)
+                    pageNr = 1;
+                else if(pageNr > 10)
+                    pageNr = 10;
+                slidesWrapper.style['margin-left'] = '-' + (pageNr - 1) + '00%';
+                Array.from(paginationPages).forEach(element => {
+                    element.style.color = 'inherit';
+                });
+                paginationPages[pageNr - 1].style.color = '#d32f2f';
+                currentPage = pageNr;
+                if(pageNr == 1)
+                    document.querySelector('.previous-button-wrapper').style.opacity = '0';
+                else
+                    document.querySelector('.previous-button-wrapper').style.opacity = '1';
+                if(pageNr == 10)
+                    document.querySelector('.next-button-wrapper').style.opacity = '0';
+                else
+                    document.querySelector('.next-button-wrapper').style.opacity = '1';
+            }
+            function previousPage() {
+                page(currentPage - 1);
+            }
+            function nextPage() {
+                page(currentPage + 1);
+            }
+        </script>
+    </body>
+</html>

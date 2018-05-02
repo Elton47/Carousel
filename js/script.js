@@ -20,7 +20,7 @@ function page(pageNr) {
     Array.from(paginationPages).forEach(element => {
         element.style.color = 'inherit';
     });
-    paginationPages[pageNr - 1].style.color = '#d32f2f';
+    paginationPages[pageNr - 1].style.color = '#5e97f6';
     currentPage = pageNr;
     if(pageNr == 1)
         document.querySelector('.previous-button-wrapper').style.opacity = '0';

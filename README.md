@@ -1,2 +1,0 @@
-# Carousel
-Pure CSS Carousel

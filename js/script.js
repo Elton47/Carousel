@@ -5,10 +5,15 @@ function init() {
     slidesWrapper.style['margin-left'] = '0';
     for(var i = 0; i < paginationPages.length; i++) {
         paginationPages[i].setAttribute('onclick', 'page(parseFloat(this.id));');
-        paginationPages[i].setAttribute('onmouseover', 'page(parseFloat(this.id));');
     }
     document.querySelector('.previous-button-wrapper').setAttribute('onclick', 'previousPage();');
     document.querySelector('.next-button-wrapper').setAttribute('onclick', 'nextPage();');
+    window.addEventListener('keydown', function(e) {
+        if(e.keyCode == 37 || e.keyCode == 40)
+            previousPage();
+        else if(e.keyCode == 39 || e.keyCode == 38)
+            nextPage();
+    });
     page(1);
 };
 function page(pageNr) {
